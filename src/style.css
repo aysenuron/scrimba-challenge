@@ -4,6 +4,10 @@ body {
     font-size: 1rem;
 }
 
+.hidden {
+    display: none;
+}
+
 header {
     width: 100%;
     margin-bottom: 40px;

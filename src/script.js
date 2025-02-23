@@ -1,6 +1,7 @@
 import { productData } from "./data.js";
 
 const container = document.querySelector(".container");
+const productsContainer = document.querySelector(".products-container");
 const orderContainer = document.querySelector(".order-container");
 const selectedItemsContainer = document.querySelector(".selected-items-container");
 const totalPrice = document.querySelector("#total-price-num");
@@ -31,12 +32,12 @@ function getProductHtml() {
 }
 
 function renderProductHtml() {
-    container.innerHTML = getProductHtml();
+    productsContainer.innerHTML = getProductHtml();
 }
 
 function handleItemSelection(item, price) {
     itemCount++;
-    totalPriceCount += parseInt(price.replace("$", ""));
+    totalPriceCount += parseInt(price);
 
     const selectedItem = document.createElement("div");
     selectedItem.classList.add("selected-items");
@@ -57,8 +58,8 @@ function renderOrderContainer() {
     console.log("Rendering order container..."); 
     console.log("Total items:", itemCount);
     if(itemCount > 0) {
-        orderContainer.style.display = "block";
-        totalPrice.textContent = `$${totalPriceCount}`;
+        orderContainer.style.display = "flex";
+        totalPrice.textContent = `${totalPriceCount}`;
         console.log(itemCount);
     } else {
         orderContainer.style.display = "none";
@@ -68,14 +69,11 @@ function renderOrderContainer() {
 renderProductHtml();
 
 container.addEventListener("click", (e) => {
-    console.log("Button clicked:", e.target); // Debugging
     if (e.target.classList.contains("add-product")) {
-        console.log("Add product button clicked!"); // Debugging
         const productName = e.target.dataset.name;
-        const productPrice = `$${e.target.dataset.price}`;
+        const productPrice = `${e.target.dataset.price}`;
         
         handleItemSelection(productName, productPrice);
         renderOrderContainer();
-        console.log(selectedItemsContainer.innerHTML);
     }
 });
