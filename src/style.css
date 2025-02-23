@@ -20,6 +20,7 @@ header img {
 .container {
     margin: 0 24px;
     position: relative;
+    margin-bottom: 150px;
 }
 
 .product-card {
@@ -110,6 +111,19 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.selected-item-name-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remove-btn {
+    background-color: white;
+    border-style: none;
+    color: #BBBBBB;
+    font-size: 0.75;
 }
 
 .complete-order {

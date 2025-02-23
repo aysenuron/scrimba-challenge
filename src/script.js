@@ -42,9 +42,19 @@ function handleItemSelection(item, price) {
     const selectedItem = document.createElement("div");
     selectedItem.classList.add("selected-items");
 
+    const selectedItemNameContainer = document.createElement("div");
+    selectedItemNameContainer.classList.add("selected-item-name-container");
+    selectedItem.appendChild(selectedItemNameContainer);
+
     const selectedItemName = document.createElement("h2");
-    selectedItem.appendChild(selectedItemName);
+    selectedItemNameContainer.appendChild(selectedItemName);
     selectedItemName.textContent = item;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-btn");
+    removeBtn.textContent = "remove";
+    removeBtn.setAttribute("data-price", price);
+    selectedItemNameContainer.appendChild(removeBtn);
 
     const itemPrice = document.createElement("p");
     itemPrice.classList.add("price");
@@ -74,6 +84,14 @@ container.addEventListener("click", (e) => {
         const productPrice = `${e.target.dataset.price}`;
         
         handleItemSelection(productName, productPrice);
+        renderOrderContainer();
+    } else if (e.target.classList.contains("remove-btn")) {
+        const clickedItem = e.target.parentElement;
+        const productPrice = `${e.target.dataset.price}`;
+        clickedItem.parentElement.remove();
+
+        totalPriceCount -= productPrice;
+        itemCount--;
         renderOrderContainer();
     }
 });
