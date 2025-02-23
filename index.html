@@ -7,7 +7,7 @@
     <meta name="description" content="The best burgers and pizzas in town.">
 
     <link rel="stylesheet" href="./src/style.css">
-    <script src="./src/script.js" defer></script>
+    <script src="./src/script.js" type="module" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,46 +20,6 @@
 
     <main>
         <div class="container">
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-img">
-                        <p class="emoji">🍕</p>
-                    </div>
-                    <div class="product-description">
-                        <h2>Pizza</h2>
-                        <p class="description">pepperoni,mushrom,mozarella</p>
-                        <p class="price">$14</p>
-                    </div>
-                </div>
-                <button class="add-product" data-price="14" data-name="pizza">+</button>
-            </div>
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-img">
-                        <p class="emoji">🍔</p>
-                    </div>
-                    <div class="product-description">
-                        <h2>Hamburger</h2>
-                        <p class="description">beef, cheese, lettuce</p>
-                        <p class="price">$12</p>
-                    </div>
-                </div>
-                <button data-name="hamburger" data-price="12" class="add-product">+</button>
-            </div>
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-img">
-                        <p class="emoji">🍺</p>
-                    </div>
-                    <div class="product-description">
-                        <h2>Beer</h2>
-                        <p class="description">grain, hops, yeast, water</p>
-                        <p class="price">$12</p>
-                    </div>
-                </div>
-                <button data-name="beer" data-price="12" class="add-product">+</button>
-            </div>
-
             <div class="order-container">
                 <h2 id="your-order">Your Order</h2>
                 <div class="selected-items-container"></div>

@@ -4,10 +4,6 @@ body {
     font-size: 1rem;
 }
 
-.hidden {
-    display: none;
-}
-
 header {
     width: 100%;
     margin-bottom: 40px;
@@ -40,10 +36,10 @@ header img {
     gap: 16px;
 }
 
-.emoji {
-    font-size: 5rem;
+.product-img img {
+    width: 72px;
+    height: auto;
     margin: 0;
-    opacity: 72%;
 }
 
 .product-description {
@@ -74,10 +70,10 @@ h2 {
     border-style: solid;
     border-color: #DEDEDE;
     border-width: 1.5px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 200;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .order-container {
