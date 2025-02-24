@@ -20,6 +20,7 @@
 
     <main>
         <div class="container">
+            <div class="backdrop"></div>
             <div class="products-container"></div>
             <div class="order-container">
                 <h2 id="your-order">Your Order</h2>
@@ -30,6 +31,19 @@
                     <p class="price">$<span id="total-price-num">0</span></p>
                 </div>
                 <button class="complete-order">Complete Order</button>
+            </div>
+            <div class="form-container">
+                <h3>Enter card details</h3>
+                <form action="#">
+                    <input id="userNameInput" type="text" placeholder="Enter your name" required>
+                    <input type="text" pattern="[0-9\s]{13,19}" 
+                    placeholder="Enter card number" required>
+                    <input type="text" placeholder="Enter CCV" pattern="\d{3,4}" required>
+                    <input type="submit" id="submit-button" value="Submit">
+                </form>
+            </div>
+            <div class="success-container">
+                Thanks, <span id="name"></span>! Your order is on its way!
             </div>
         </div>
     </main>

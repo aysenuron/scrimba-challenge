@@ -6,6 +6,8 @@ const orderContainer = document.querySelector(".order-container");
 const selectedItemsContainer = document.querySelector(".selected-items-container");
 const totalPrice = document.querySelector("#total-price-num");
 
+const form = document.querySelector("form");
+
 let itemCount = 0;
 let totalPriceCount = 0;
 
@@ -76,6 +78,14 @@ function renderOrderContainer() {
     }
 }
 
+function openForm() {
+    const formContainer = document.querySelector(".form-container");
+    const backdrop = document.querySelector(".backdrop");
+
+    backdrop.style.display = "block";
+    formContainer.style.display = "flex";
+}
+
 renderProductHtml();
 
 container.addEventListener("click", (e) => {
@@ -90,8 +100,33 @@ container.addEventListener("click", (e) => {
         const productPrice = `${e.target.dataset.price}`;
         clickedItem.parentElement.remove();
 
-        totalPriceCount -= productPrice;
+        totalPriceCount -= parseInt(productPrice);
         itemCount--;
         renderOrderContainer();
+    } else if(e.target.classList.contains("complete-order")) {
+        const completeOrderBtn = document.querySelector(".complete-order");
+        completeOrderBtn.addEventListener("click", openForm);
+    } else if (form) {
+        const formContainer = document.querySelector(".form-container");
+        const backdrop = document.querySelector(".backdrop");
+        const successContainer = document.querySelector(".success-container");
+        const userNameInput = document.getElementById("userNameInput");
+        const userName = document.getElementById("name");
+
+        backdrop.addEventListener("click", () => {
+            backdrop.style.display = "none";
+            formContainer.style.display = "none";
+        });
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            backdrop.style.display = "none";
+            formContainer.style.display = "none";
+            successContainer.style.display = "block";
+            userName.textContent = userNameInput.value;
+            orderContainer.style.display = "none";
+            totalPriceCount = 0;
+            itemCount = 0;
+        })
     }
 });
